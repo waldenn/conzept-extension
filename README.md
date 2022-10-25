@@ -18,6 +18,7 @@ Get this Extension for [🦊 Firefox](https://addons.mozilla.org/en-US/firefox/a
 1. Checkout the repository to your local machine eg. with `git clone git@github.com:fuddl/wd.git`
 2. run `yarn` to install all required dependencies
 3. run `yarn build`
+4. run `./build` (to rebuild the extension zip)
 
 The build step will create the `distribution` folder, this folder will contain the generated extension.
 

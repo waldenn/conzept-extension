@@ -187,3 +187,33 @@ browser.runtime.onMessage.addListener(async (data, sender) => {
 
 browser.webNavigation.onHistoryStateUpdated.addListener(
     e => browser.tabs.sendMessage(e.tabId, {action: "find_applicables"}))
+
+// CONZEPT PATCH START
+const CONTEXT_MENU_ID = "conzept_search";
+
+//const bkg = browser.extension.getBackgroundPage();
+
+function conzeptSearch(info,tab) {
+
+  //bkg.console.log( info, tab );
+
+  if (info.menuItemId !== CONTEXT_MENU_ID) {
+    return;
+  }
+
+  const selection = info.selectionText.replace(/[?#\\/]/g, ' ');
+
+  const newURL = 'https://conze.pt/explore/' + selection;
+
+  browser.tabs.create({ url: newURL });
+
+}
+
+browser.contextMenus.create({
+  title: "Conzept search: \"%s\"",
+  contexts:["all"],
+  id: CONTEXT_MENU_ID,
+});
+
+browser.contextMenus.onClicked.addListener( conzeptSearch );
+// CONZEPT PATCH END

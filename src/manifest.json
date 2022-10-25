@@ -1,24 +1,24 @@
 {
 	"manifest_version": 2,
-	"name": "Wikidata",
-	"version": "0.280",
-	"description": "Display information from wikidata.",
+	"name": "Conzept",
+	"version": "0.280.2",
+	"description": "Search the Conze.pt encyclopedia and display information from Wikidata.",
 	"icons": {
-		"48": "icons/wd-48.png",
-		"96": "icons/wd-96.png",
-        "128": "icons/wd-128.png"
+    "48": "icons/conzept-48.png",
+    "96": "icons/conzept-96.png",
+    "128": "icons/conzept-128.png"
 	},
 	"browser_action": {
-		"default_icon": "icons/inactive-32.png",
-		"default_title": "Wikidata"
+    "default_icon": "icons/conzept-48.png",
+    "default_title": "Conzept"
 	},
 	"sidebar_action": {
-		"default_icon": "icons/wd.svg",
-		"default_title": "Wikidata",
+    "default_icon": "icons/conzept-48.png",
+		"default_title": "Conzept",
 		"default_panel": "sidebar/entity.html",
 		"open_at_install": true
 	},
-	"permissions": ["storage", "webNavigation", "<all_urls>"],
+	"permissions": ["storage", "webNavigation", "<all_urls>", "contextMenus" ],
 	"background": {
 		"scripts": ["background/index.js"]
 	},
@@ -26,7 +26,8 @@
 		{
 			"matches": ["<all_urls>"],
 			"run_at": "document_end",
-			"js": ["content/index.js"]
+			"js": ["content/index.js"],
+      "all_frames": true
 		}
 	],
 	"web_accessible_resources": [
@@ -38,7 +39,7 @@
 	],
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "{8b348118-df28-4d6b-aa90-4e90049c7f19}",
+			"id": "{d9c212a5-29ee-48a4-bddb-a6f165bab0b6}",
 			"strict_min_version": "89.0"
 		}
 	},
